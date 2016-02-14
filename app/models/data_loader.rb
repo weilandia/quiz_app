@@ -5,7 +5,7 @@ class DataLoader < ActiveRecord::Base
 
   def self.questions_from_csv(data = './data/questions.csv')
     CSV.open(data, headers: true, header_converters: :symbol).each do |row|
-      Question.create({ difficulty: row[:difficulty], strand_id: row[:strand_id] })
+      Question.find_or_create_by({ difficulty: row[:difficulty], strand_id: row[:strand_id], question_id: row[:question_id]})
     end
   end
 

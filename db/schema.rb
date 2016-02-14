@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20160214202750) do
   create_table "questions", force: :cascade do |t|
     t.integer  "difficulty"
     t.integer  "strand_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "quizzes", force: :cascade do |t|

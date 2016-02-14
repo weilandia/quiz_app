@@ -3,6 +3,7 @@ class CreateQuizzes < ActiveRecord::Migration
     create_table  :quizzes do |t|
       t.integer   :student_id
       t.integer   :length
+      
 
       t.timestamps null: false
     end

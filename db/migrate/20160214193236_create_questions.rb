@@ -3,6 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table  :questions do |t|
       t.integer   :difficulty
       t.integer   :strand_id
+      t.integer   :question_id
 
       t.timestamps null: false
     end

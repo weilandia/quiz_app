@@ -9,7 +9,9 @@ class QuizTest < Minitest::Test
     DataLoader.standards_from_csv
     DataLoader.usages_from_csv
 
-    CreateQuiz.new_quiz
-    
+    CreateQuiz.new_quiz(5,7)
+    assert_equal 5, Quiz.all.first.length
+    assert_equal 7, Quiz.all.first.student_id
+    require "pry"; binding.pry
   end
 end

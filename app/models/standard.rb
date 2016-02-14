@@ -1,4 +1,4 @@
 class Standard < ActiveRecord::Base
-  belongs_to :strand
+  has_many :strands
 
 end
