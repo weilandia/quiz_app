@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
-  belongs_to :standard
+  has_many :strand
   belongs_to :student
+  belongs_to :quiz
 
 end
