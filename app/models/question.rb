@@ -12,13 +12,17 @@ class Question < ActiveRecord::Base
     s = 0
     q = 0
 
-    length.times do
-      if Strand.all[s].nil? then s = 0 end
-      if Strand.all[s].questions[q].nil? then q = 0 end
-      quiz << Strand.all[s].questions[q]
+    standard_count = Standard.all.count
+    dist = ((length) / standard_count) + 1
+
+    standard_count.times do
+      dist.times do
+        if Standard.all[s].questions[q].nil? then q = 0 end
+        quiz << Standard.all[s].questions[q]
+        q += 1
+      end
       s += 1
-      q += 1
     end
-    quiz.map(&:id)
+    quiz.map(&:id)[0..(length - 1)].shuffle
   end
 end
