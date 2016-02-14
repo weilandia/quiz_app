@@ -1,19 +1,20 @@
 class Question < ActiveRecord::Base
-  has_many :quizzes
-  belongs_to :strand
+  belongs_to :standard
 
   def self.build_quiz(length = nil)
     if length == nil
       puts "How many questions would you like?"
       length = gets.to_i
     end
+    strands = all.pluck(:strand_id).uniq
     quiz = []
-    n = 0
-    length.times do
-      quiz << all[n].question_id
+    dist = (length + 1) / strands.count
+    dist.times do
+      quiz <<
+
       n += 1
     end
-    quiz
+    quiz.map(&:question_id)
   end
 
 end

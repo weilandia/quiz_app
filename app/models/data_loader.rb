@@ -5,19 +5,19 @@ class DataLoader < ActiveRecord::Base
 
   def self.questions_from_csv(data = './data/questions.csv')
     CSV.open(data, headers: true, header_converters: :symbol).each do |row|
-      Question.find_or_create_by({ difficulty: row[:difficulty], strand_id: row[:strand_id], question_id: row[:question_id]})
+      Question.find_or_create_by({ difficulty: row[:difficulty], id: row[:question_id], standard_id: row[:standard_id]})
     end
   end
 
   def self.strands_from_csv(data = './data/questions.csv')
     CSV.open(data, headers: true, header_converters: :symbol).each do |row|
-      Strand.find_or_create_by({ name: row[:strand_name], standard_id: row[:standard_id] })
+      Strand.find_or_create_by({ name: row[:strand_name], id: row[:strand_id] })
     end
   end
 
   def self.standards_from_csv(data = './data/questions.csv')
     CSV.open(data, headers: true, header_converters: :symbol).each do |row|
-      Standard.find_or_create_by({ name: row[:standard_name], })
+      Standard.find_or_create_by({ name: row[:standard_name], id: row[:standard_id], strand_id: row[:strand_id] })
     end
   end
 
