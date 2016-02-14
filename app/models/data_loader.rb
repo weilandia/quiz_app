@@ -1,4 +1,3 @@
-require_relative 'question'
 require 'csv'
 
 class DataLoader < ActiveRecord::Base

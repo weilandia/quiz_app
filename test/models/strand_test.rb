@@ -5,6 +5,6 @@ class StrandTest < Minitest::Test
 
   def test_strand_data
     DataLoader.strands_from_csv
-    assert_equal 6, Strand.all.count
+    assert_equal 2, Strand.all.count
   end
 end
